@@ -1,0 +1,27 @@
+
+<ion-content color="#" padding>
+  <img width="150" class="logo" src="../assets/img/icon.png" />
+  <form #form="ngForm" (ngSubmit)="login(form)">
+    <ion-grid>
+      <ion-row color="primary" justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <div text-center class="forgot-password">
+            <h3>Fisio Clínica</h3>
+          </div>
+          <div padding>
+            <ion-item>
+              <ion-input name="username" value="guilotmsc" placeholder="Informe seu Username" ngModel required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input name="password" value="admin" type="password" placeholder="Informe sua senha" ngModel required></ion-input>
+            </ion-item>
+          </div>
+          <div padding class="forgot-password" style="padding-top: 10%">
+            <ion-button size="large" style="margin-bottom: 2em;" type="submit" color="success" [disabled]="form.invalid" expand="block">Entrar</ion-button>
+            <a [routerLink]="['/forgot-password']"  class="small-text forgot-password">Esqueceu sua senha?</a>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

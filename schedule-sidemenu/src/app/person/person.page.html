@@ -1,0 +1,108 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Cadastro Pessoas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <form #form="ngForm" (ngSubmit)="handleSubmit(form)">
+    <ion-list lines="full" class="ion-no-margin">
+      <ion-item>
+        <ion-label>Nome</ion-label>
+        <ion-input name="name" placeholder="Insira o nome completo" ngModel required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Username</ion-label>
+        <ion-input name="username" placeholder="Insira o username" ngModel required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Pessoa</ion-label>
+        <ion-select name="type" value="Paciente" ngModel required>
+          <ion-select-option value="Paciente">Paciente</ion-select-option>
+          <ion-select-option value="Funcionario">Funcionario</ion-select-option>
+          <ion-select-option value="Fisioterapeuta">Fisioterapeuta</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Data de nascimento</ion-label>
+        <ion-datetime ngModel name="birthdate" display-timezone="utc"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label>RG</ion-label>
+        <ion-input name="document" placeholder="Insira o nro. de RG" ngModel></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Sexo</ion-label>
+          <ion-select name="gender" ngModel value="" required>
+            <ion-select-option value="m">Masculino</ion-select-option>
+            <ion-select-option value="f">Feminino</ion-select-option>
+          </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>CPF</ion-label>
+        <ion-input name="cpf" placeholder="xxx.xxx.xxx-xx" ngModel required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Naturalidade</ion-label>
+        <ion-input name="naturalness" placeholder="Naturalidade" ngModel></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Estado Civil</ion-label>
+        <ion-select name="civil_status" value="" ngModel>
+          <ion-select-option value="Casado">Casado(a)</ion-select-option>
+          <ion-select-option value="Solteiro">Solteiro(a)</ion-select-option>
+          <ion-select-option value="Separado">Separado(a)</ion-select-option>
+          <ion-select-option value="Divorciado">Divorciado(a)</ion-select-option>
+          <ion-select-option value="Viúvo">Viúvo(a)</ion-select-option>
+          <ion-select-option value="Outros">Outros</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Nacionalidade</ion-label>
+        <ion-select name="nationality" value="" ngModel>
+          <ion-select-option value="Brasileiro">Brasileiro(a)</ion-select-option>
+          <ion-select-option value="Estrangeiro">Estrangeiro(a)</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Escolaridade</ion-label>
+        <ion-select name="schooling" value="" ngModel>
+          <ion-select-option value="Ensino Fundamental">Ensino Fundamental</ion-select-option>
+          <ion-select-option value="Ensino Médio">Ensino Médio</ion-select-option>
+          <ion-select-option value="Ensino Superior">Ensino Superior</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Telefone:</ion-label>
+        <ion-input name="previous_profession" placeholder="99 99999-9999" ngModel></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Profissão Atual</ion-label>
+        <ion-input name="current_profession" placeholder="Profissão Atual" ngModel></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Contato Emergencial</ion-label>
+        <ion-input name="emergency_contact" placeholder="99 99999-9999" ngModel required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Grau de Parentesco</ion-label>
+        <ion-select name="degree_of_kinship" value="" ngModel required>
+          <ion-select-option value="Pai">Pai</ion-select-option>
+          <ion-select-option value="Mãe">Mãe</ion-select-option>
+          <ion-select-option value="Avô">Avô</ion-select-option>
+          <ion-select-option value="Avó">Avó</ion-select-option>
+          <ion-select-option value="Primo">Primo</ion-select-option>
+          <ion-select-option value="Tio">Tio</ion-select-option>
+          <ion-select-option value="Vizinho">Vizinho</ion-select-option>
+          <ion-select-option value="Outros">Outros</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+    <ion-footer>
+      <ion-button color="success" type="submit" [disabled]="form.invalid" expand="block">Salvar</ion-button>
+    </ion-footer>
+  </form>
+</ion-content>

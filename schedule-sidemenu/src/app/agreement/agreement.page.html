@@ -1,0 +1,28 @@
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Convênio</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <form #form="ngForm" (ngSubmit)="handleSubmit(form)">
+    <ion-list lines="full" class="ion-no-margin">
+      <ion-item>
+        <ion-label>Nome</ion-label>
+        <ion-input name="name" ngModel placeholder="Insira o nome" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Descrição</ion-label>
+        <ion-textarea name="description" ngModel placeholder="Insira a descrição" required></ion-textarea>
+      </ion-item>
+    </ion-list>
+    <ion-footer>
+      <ion-button color="success" type="submit" [disabled]="form.invalid" expand="block">Salvar</ion-button>
+    </ion-footer>
+  </form>
+</ion-content>
+

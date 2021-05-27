@@ -1,0 +1,10 @@
+{
+  "name": "scheduleApp",
+  "integrations": {
+    "capacitor": {
+      "enabled": false
+    },
+    "cordova": {}
+  },
+  "type": "angular"
+}

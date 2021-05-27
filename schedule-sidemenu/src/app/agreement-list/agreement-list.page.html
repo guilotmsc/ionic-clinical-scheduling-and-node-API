@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Convênios</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-list>
+    <div *ngFor="let a of agreements">
+      <ion-item-sliding>
+        <ion-item>
+          <ion-label>
+            <h2>{{ a.NomeConvenio }}</h2>
+            <p>{{ a.DescricaoConvenio }}</p>
+          </ion-label>
+        </ion-item>
+
+        <ion-item-options side="end" (click)="delete(a.IdConvenio)">
+          <ion-item-option color="danger" >Delete</ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </div>
+  </ion-list>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" [routerLink]="['/agreement']">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

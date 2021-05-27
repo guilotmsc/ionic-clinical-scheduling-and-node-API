@@ -1,0 +1,27 @@
+{
+  "name": "tarso",
+  "version": "1.0.0",
+  "description": "meu prog",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon app"
+  },
+  "keywords": [],
+  "author": "tarcisio",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.20.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "dotenv-safe": "^8.2.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.5",
+    "request": "^2.88.2",
+    "standard": "^14.3.4"
+  }
+}

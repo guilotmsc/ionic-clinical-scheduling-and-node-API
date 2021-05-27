@@ -1,0 +1,34 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Especialista</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <form #form="ngForm" (ngSubmit)="handleSubmit(form)">
+    <ion-list lines="full" class="ion-no-margin">
+      <ion-item>
+        <ion-label>Especialidade</ion-label>
+        <ion-input name="specialty" placeholder="Informa a Especialidade" ngModel required></ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label>Código do CRM</ion-label>
+        <ion-input name="crm" placeholder="Informe o CRM" ngModel required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Pessoa</ion-label>
+        <ion-select name="person" ngModel>
+          <ion-select-option *ngFor="let p of people" value="{{p.IdPessoa}}">{{p.Nome}} - RG: {{p.RG}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+    <ion-footer>
+      <ion-button color="success" type="submit" [disabled]="form.invalid" expand="block">Salvar</ion-button>
+    </ion-footer>
+  </form>
+</ion-content>

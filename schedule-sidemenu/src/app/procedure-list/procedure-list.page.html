@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Procedimentos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-list>
+    <div *ngFor="let p of procedures">
+      <ion-item-sliding>
+        <ion-item>
+          <ion-label>
+            <h2>Paciente: {{ p.paciente }}</h2>
+            <p>Convênio: {{ p.convenio }}</p>
+            <p>Procedimento: {{ p.tipoprocedimento }}</p>
+            <p>Especialista: {{ p.pessoa }}</p>
+            <p>Especialidade: {{ p.especialidade }}</p>
+          </ion-label>
+        </ion-item>
+    
+        <ion-item-options side="end" (click)="delete(p.IdProcedimento)">
+          <ion-item-option color="danger" >Delete</ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </div>
+  </ion-list>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" [routerLink]="['/procedures']">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

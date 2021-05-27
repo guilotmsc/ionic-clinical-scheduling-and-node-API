@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Atendimentos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-list>
+    <div *ngFor="let p of appointments">
+      <ion-item (click)="showAttendance(p)">
+        <ion-avatar slot="start">
+          <img src="../assets/img/consulta.jpg">
+        </ion-avatar>
+        <ion-label>
+          <p>Data: <b>{{ p.DataConsulta | date: 'dd/MM/yyyy'  }}</b> | Hora: <b>{{ p.HoraFormatada }}</b></p>
+          <p>Paciente: <b>{{ p.paciente }}</b></p>
+          <p>Especialista: <b>{{ p.especialista }}</b></p>
+        </ion-label>
+      </ion-item>
+    </div>
+  </ion-list>
+</ion-content>

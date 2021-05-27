@@ -1,0 +1,59 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Procedimento</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <form #form="ngForm" (ngSubmit)="handleSubmit(form)">
+    <ion-list lines="full" class="ion-no-margin">
+      
+      <ion-item>
+        <ion-label>Data</ion-label>
+        <ion-datetime ngModel name="date" display-timezone="utc" required></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Hora</ion-label>
+        <ion-datetime ngModel name="time" display-format="H:mm" picker-format="H:mm" value="" required></ion-datetime>
+      </ion-item>
+
+     
+
+      <ion-item>
+        <ion-label>Especialista</ion-label>
+        <ion-select name="specialist" ngModel required>
+          <ion-select-option *ngFor="let p of specialists" value="{{p.IdEspecialista}}">{{p.Pessoa}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Convênio</ion-label>
+        <ion-select name="agreement" ngModel required>
+          <ion-select-option *ngFor="let p of agreements" value="{{p.IdConvenio}}">{{p.NomeConvenio}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Paciente</ion-label>
+        <ion-select name="patient" ngModel required>
+          <ion-select-option *ngFor="let p of patients" value="{{p.IdPessoa}}">{{p.Nome}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Tipo Procedimento</ion-label>
+        <ion-select name="procedure_type" ngModel required>
+          <ion-select-option *ngFor="let p of procedureTypes" value="{{p.IdTipoProcedimento}}">{{p.DescricaoTipoProcedimento}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+    </ion-list>
+    <ion-footer>
+      <ion-button color="success" type="submit" [disabled]="form.invalid" expand="block">Salvar</ion-button>
+    </ion-footer>
+  </form>
+</ion-content>

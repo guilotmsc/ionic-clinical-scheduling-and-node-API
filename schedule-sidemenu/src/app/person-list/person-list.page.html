@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Pessoas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-list>
+    <div *ngFor="let p of people">
+      <ion-item-sliding>
+        <ion-item (click)="edit(p)">
+          <ion-label>
+            <h2>{{ p.Nome }}</h2>
+            <p>RG: {{ p.RG }}</p>
+            <p>Tipo: {{ p.TipoPessoa }}</p>
+          </ion-label>
+        </ion-item>
+        <ion-item-options side="end" (click)="delete(p.IdPessoa)">
+          <ion-item-option color="danger" >Delete</ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </div>
+  </ion-list>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" [routerLink]="['/person']">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

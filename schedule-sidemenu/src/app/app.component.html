@@ -1,0 +1,75 @@
+<ion-app>
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content" type="overlay">
+      <ion-content>
+        <div style="align-items: center; margin: 5em; margin-top: 1em; margin-bottom: 0;">
+          <ion-avatar style="align-items: center; margin: 2em;">
+            <img width="120" src="../assets/img/avatar.png"/>
+          </ion-avatar>
+          <h3 style="text-align: center; text-transform:capitalize;">{{user}}</h3>
+          <p style="text-align: center; font-size: 8;">{{userType}}</p>
+        </div>
+
+        <ion-list id="labels-list">
+          <ion-item lines="none" *ngIf="userType == 'Funcionario'" (click)="isRemainder === 1 ? isRemainder = 0 : isRemainder = 1">
+            <ion-icon name="add-circle" slot="start"></ion-icon>
+            <ion-label>Cadastros</ion-label>
+            <ion-icon slot="end" [name]="isRemainder? 'arrow-up' : 'arrow-down'"></ion-icon>
+          </ion-item>
+    
+          <ion-menu-toggle auto-hide="false" *ngIf="userType == 'Funcionario'">
+            <ion-list lines="none" class="sub-menu-list">
+              <ion-item menuclose [hidden]="!isRemainder" routerDirection="root" [routerLink]="['/person-list']" menuClose class="sub-menu">
+                <ion-icon name="people" slot="start"></ion-icon>
+                Pessoas
+              </ion-item>
+              <ion-item menuclose [hidden]="!isRemainder" routerDirection="root" [routerLink]="['/specialist-list']"
+                menuClose class="sub-menu">
+                <ion-icon name="person-add" slot="start"></ion-icon>
+                Especialistas
+              </ion-item>
+              <ion-item menuclose [hidden]="!isRemainder" routerDirection="root" [routerLink]="['/agreement-list']"
+                menuClose class="sub-menu">
+                <ion-icon name="receipt" slot="start"></ion-icon>
+                Convênios
+              </ion-item>
+              <ion-item menuclose [hidden]="!isRemainder" routerDirection="root" [routerLink]="['/procedure-type-list']"
+                menuClose class="sub-menu">
+                <ion-icon name="reader" slot="start"></ion-icon>
+                Tipo de Procedimentos
+              </ion-item>
+              <ion-item menuclose [hidden]="!isRemainder" routerDirection="root" [routerLink]="['/procedure-list']"
+                menuClose class="sub-menu">
+                <ion-icon name="list" slot="start"></ion-icon>
+                Procedimentos
+              </ion-item>
+            </ion-list>
+          </ion-menu-toggle>
+        </ion-list>
+        <ion-list id="inbox-list">
+          <ion-menu-toggle auto-hide="false">
+            <!-- <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" [class.selected]="selectedIndex == i"> -->
+            <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="['/schedule-list']" lines="none" detail="false">
+              <ion-icon slot="start" [ios]="'calendar-outline'" [md]="'calendar-sharp'"></ion-icon>
+              <ion-label>Agendamentos</ion-label>
+            </ion-item>
+            <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="['/attendance-list']" lines="none" detail="false">
+              <ion-icon slot="start" [ios]="'file-tray-stacked-outline'" [md]="'file-tray-stacked-sharp'"></ion-icon>
+              <ion-label>Atendimentos</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+
+        <ion-list id="inbox-list">
+          <ion-menu-toggle auto-hide="false">
+            <ion-item routerDirection="root" [routerLink]="['/']" lines="none" detail="false">
+              <ion-icon name="arrow-redo" slot="start"></ion-icon>
+              <ion-label>Sair</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

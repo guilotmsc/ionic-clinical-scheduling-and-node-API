@@ -1,0 +1,29 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Atendimentos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title><b>{{patient}}</b></ion-card-title>
+
+      <ion-card-subtitle>Especialista: <b>{{specialist}}</b></ion-card-subtitle>
+
+      <ion-card-subtitle>Data: <b>{{ date | date: 'dd/MM/yyyy'  }}</b></ion-card-subtitle>
+      <ion-card-subtitle>Hora: <b>{{hour}}</b></ion-card-subtitle>
+
+      <ion-card-subtitle>Altura: <b>{{weigth}}</b></ion-card-subtitle>
+      <ion-card-subtitle>Peso: <b>{{heigth}}</b></ion-card-subtitle>
+      <ion-card-subtitle>Pressão: <b>{{imc}}</b></ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      Diagnostico: <b>{{diagnosis}}</b>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

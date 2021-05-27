@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Especialistas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-list>
+    <div *ngFor="let s of specialists">
+      <ion-item-sliding>
+        <ion-item>
+          <ion-label>
+            <h2>Nome: {{ s.Pessoa }}</h2>
+            <p>Especialidade: {{ s.Especialidade }}</p>
+            <p>CRM: {{ s.CRMEspecialista }}</p>
+          </ion-label>
+        </ion-item>
+
+        <ion-item-options side="end" (click)="delete(s.IdEspecialista)">
+          <ion-item-option color="danger" >Delete</ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </div>
+  </ion-list>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" [routerLink]="['/specialist']">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

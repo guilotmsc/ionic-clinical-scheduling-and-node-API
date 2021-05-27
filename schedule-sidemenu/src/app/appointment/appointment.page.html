@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Consulta</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <form #form="ngForm" (ngSubmit)="handleSubmit(form)">
+    <ion-list lines="full" class="ion-no-margin">
+      <ion-item>
+        <ion-label>Paciente</ion-label>
+        <ion-input name="patientName" [(ngModel)]="patientName" disabled></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Peso</ion-label>
+        <ion-input name="weight" ngModel placeholder="Insira o peso" required></ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label>Altura</ion-label>
+        <ion-input name="height" ngModel placeholder="Insira a altura" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Pressão</ion-label>
+        <ion-input name="imc" ngModel placeholder="Insira a pressão" required></ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label>Diagnostico</ion-label>
+        <ion-textarea name="diagnosis" ngModel placeholder="Informe o diagnostico" required></ion-textarea>
+      </ion-item>
+    </ion-list>
+    <ion-footer>
+      <ion-button color="success" type="submit" [disabled]="form.invalid" expand="block">FINALIZAR</ion-button>
+    </ion-footer>
+  </form>
+</ion-content>
